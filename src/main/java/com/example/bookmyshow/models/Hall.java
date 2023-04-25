@@ -1,5 +1,6 @@
 package com.example.bookmyshow.models;
 
+import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -13,6 +14,7 @@ public class Hall extends BaseModel {
     private Integer hallNumber;
 
     @Builder.Default
+    @OneToMany
     private List<Seat> seats = new ArrayList<>();
 
     public Hall(long id, Date createdAt, Date updatedAt, Integer hallNumber, List<Seat> seats) {
