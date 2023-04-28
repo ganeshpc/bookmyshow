@@ -25,19 +25,14 @@ public class Ticket extends BaseModel {
     private Double amount;
 
     @Enumerated
-    private TicketStatus status;
+    private final TicketStatus status;
 
-    @Builder.Default
-    @OneToMany
-    private List<Payment> payment = new ArrayList<>();
-
-    public Ticket(long id, Date createdAt, Date updatedAt, Show show, User user, List<ShowSeat> showSeats, Double amount, TicketStatus status, List<Payment> payment) {
+    public Ticket(long id, Date createdAt, Date updatedAt, Show show, User user, List<ShowSeat> showSeats, Double amount, TicketStatus status) {
         super(id, createdAt, updatedAt);
         this.show = show;
         this.user = user;
         this.showSeats = showSeats;
         this.amount = amount;
         this.status = status;
-        this.payment = payment;
     }
 }
