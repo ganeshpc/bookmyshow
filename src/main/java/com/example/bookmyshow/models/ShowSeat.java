@@ -4,10 +4,12 @@ import com.example.bookmyshow.enums.SeatStatus;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
+@Setter
 public class ShowSeat extends BaseModel {
     private Double price;
 

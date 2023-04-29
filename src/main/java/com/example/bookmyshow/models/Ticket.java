@@ -2,8 +2,7 @@ package com.example.bookmyshow.models;
 
 import com.example.bookmyshow.enums.TicketStatus;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +10,9 @@ import java.util.List;
 
 @Getter
 @Entity
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Ticket extends BaseModel {
 
     @ManyToOne
@@ -25,14 +27,5 @@ public class Ticket extends BaseModel {
     private Double amount;
 
     @Enumerated
-    private final TicketStatus status;
-
-    public Ticket(long id, Date createdAt, Date updatedAt, Show show, User user, List<ShowSeat> showSeats, Double amount, TicketStatus status) {
-        super(id, createdAt, updatedAt);
-        this.show = show;
-        this.user = user;
-        this.showSeats = showSeats;
-        this.amount = amount;
-        this.status = status;
-    }
+    private TicketStatus status;
 }
